@@ -1,0 +1,22 @@
+<div class="row posts">
+  <div class="offset-md-3 col-md-6">
+    <div class="card card-info">
+      <div class="card-heading">
+        <span class="fa fa-user"></span> 
+        <a href="<%= user_path(post.user) %>" ><%= post.user.email %></a>
+      </div>
+      <div class="card-body">
+        <div class="post-image">
+          <div id="map_<%= post.id %>" class="map" data-id="<%= post.id %>" data-longitude="<%= post.longitude%>" data-lattitude="<%= post.lattitude %>"></div>
+          <div style="display: none;">
+            <a class="overlay locationName" id="locationName_<%=post.id %>" href="#"><%= post.location_name %></a>
+            <div class="marker" id="marker_<%=post.id %>" title="Marker"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <%= post.caption %>
+      </div>
+    </div>
+  </div>
+</div>

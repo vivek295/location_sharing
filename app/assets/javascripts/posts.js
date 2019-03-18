@@ -1,0 +1,22 @@
+// $(document).on('turbolinks:load', function() {
+//   $('#post_public').on('change', function() {
+//     $.ajax({
+//       url: '/controller/done',
+//       beforeSend: function() {
+//         alert('Hi');
+//       },
+//       data: 'id=' + act_id,
+//       success: function() {
+//         alert('Bye');
+//       }
+//     });
+//   });
+// });
+
+$(document).on('show.bs.modal', '.modal', function (event) {
+  var zIndex = 1040 + (10 * $('.modal:visible').length);
+  $(this).css('z-index', zIndex);
+  setTimeout(function() {
+      $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 10).addClass('modal-stack');
+  }, 0);
+});
