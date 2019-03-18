@@ -1,24 +1,31 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#Steps for setting up application
+Ruby Version: 2.4.1
 
-Things you may want to cover:
+# Clone git Repository
+git clone git@github.com:viveksingh295/location_sharing.git
 
-* Ruby version
+# Enter application Folder
+cd location_sharing
 
-* System dependencies
+# Install bundler gem
+gem install bundler
 
-* Configuration
+# Bundle Install all gems in gemfile
+bundle install
 
-* Database creation
+# DB Setup
+// you may need to update the config/database.yml for updating username and password 
 
-* Database initialization
+rails db:create
+rails db:migrate
 
-* How to run the test suite
+# Seed data to DB
+rails db:seed
 
-* Services (job queues, cache servers, search engines, etc.)
+# Start server
+rails s
 
-* Deployment instructions
+#Visit Application at http://localhost:3000
 
-* ...
