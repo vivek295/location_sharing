@@ -20,7 +20,7 @@
               <%= f.label :public, "Share with all", class: "control-label" %>
             </div>
           </div>
-          <div class="form-group">
+          <div class="form-group" id='multiSelectUser' style="display: none;">
             <%= f.label :share_with, class: "col-sm-6 control-label" %>
             <div class="col-sm-12">
               <%= f.collection_select :share_with, [], :id, :email, {}, :multiple => 'true', :class => 'form-control' %>
@@ -56,6 +56,7 @@
 <script type="text/javascript">
   $('#post_public').on('change', function() {
     if (! $(this).is(':checked')) {
+      $('#multiSelectUser').show();
       $.ajax({
         url: '/users/user_list',
         dataType: "json",
@@ -67,6 +68,8 @@
           });
         }
       });
+    } else {
+      $('#multiSelectUser').hide();
     }
   });
 </script>
