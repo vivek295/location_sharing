@@ -11,14 +11,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.build(post_params)
-    @post.share_with = params[:post][:share_with].reject { |id| id == "" }
-    if @post.save
+    post = current_user.posts.build(post_params)
+    post.share_with = params[:post][:share_with].reject { |id| id == "" }
+    if post.save
       flash[:success] = "Post created!"
       redirect_to root_path
     else
-      @feed_items = []
-      render 'static_pages/home'
+      @error = post.errors.messages[:longitude].first || "Error creating Post"
     end
   end
 

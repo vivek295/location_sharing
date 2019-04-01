@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show]
 
   def show
-    @user = User.find(params[:id])
+    @user = User.where(username: params[:username]).first
+    @posts = @user && @user.posts.where(public: true)
   end
 
   def index
@@ -17,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def user_list
-    @users = User.all
+    @users = User.all_except(current_user)
     respond_to do |format|
       format.html
       format.js

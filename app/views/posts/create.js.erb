@@ -1,0 +1,9 @@
+<% if @error %>
+  $('#post-create-error').empty();
+  var message = '<div class = "alert alert-danger">';
+  message += '<button class="close" data-dismiss="alert">×</button>';
+  message += "<%= @error %>";
+  message += '</div>';
+  $('#post-create-error').append(message);
+  $('#post-create-error').show();
+<% end %>

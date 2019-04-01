@@ -1,0 +1,13 @@
+<%if !@user %>
+  <div id="users-posts">
+    No record found
+  </div>
+<%else%>
+  <div id="users-posts">
+    <%= render @posts %>
+  </div>
+<%end%>
+
+<script type="text/javascript">
+  renderMap();
+</script>

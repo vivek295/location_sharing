@@ -31,3 +31,14 @@
 
 en:
   hello: "Hello world"
+
+en:
+  activerecord:
+    errors:
+      models:
+        post:
+          attributes:
+            longitude:
+              blank: "location selection is required"
+            lattitude:
+              blank: "location selection is required"
