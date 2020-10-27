@@ -8,9 +8,12 @@ default: &default
 development:
   <<: *default
   database: location_sharing
-
+  
 test:
   <<: *default
+  host: localhost
+  username: postgres
+  password: postgres
   database: location_sharing_test
 
 production:
